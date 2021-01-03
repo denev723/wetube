@@ -1,0 +1,15 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "Youtube clone with nodeJS, MongoDB (nomadcoders academy)",
+  "main": "index.js",
+  "repository": "https://github.com/denev723/wetube.git",
+  "author": "denev <65989857+deneb0723@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
