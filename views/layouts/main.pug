@@ -3,11 +3,12 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Wetube
+        title #{siteName}
+        <script src="https://kit.fontawesome.com/37a6a87124.js" crossorigin="anonymous"></script>
     body
-        header
-            h1 Wetube
+        include ../partials/header
+
         main
             block content
-        footer
-            span &copy;Wetube
+
+        include ../partials/footer
