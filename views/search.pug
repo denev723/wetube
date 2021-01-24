@@ -3,11 +3,14 @@ include mixins/videoBlock
 
 block content
     .search__header
-        h3 #{term}에 대한 검색결과
+        h3 #{searchingBy}에 대한 검색결과
     .search__videos
+        if videos.length === 0
+            h5 #{searchingBy} 에 대한 비디오를 찾을 수 없습니다.
         each item in videos
             +videoBlock({
                 title:item.title,
                 views:item.views,
-                videoFile:item.videoFile
+                videoFile:item.videoFile,
+                id:item.id
             })
