@@ -37,9 +37,49 @@ export const postUpload = async (req, res) => {
   res.redirect(routes.videoDetail(newVideo.id));
 };
 
-export const videoDetail = (req, res) =>
-  res.render("videoDetail", { pageTitle: "비디오" });
-export const editVideo = (req, res) =>
-  res.render("editVideo", { pageTitle: "비디오 수정" });
-export const deleteVideo = (req, res) =>
-  res.render("deleteVideo", { pageTitle: "비디오 삭제" });
+export const videoDetail = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    res.render("videoDetail", { pageTitle: video.title, video });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
+
+export const getEditVideo = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    res.render("editVideo", { pageTitle: `${video.title} 수정`, video });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
+
+export const postEditVideo = async (req, res) => {
+  const {
+    params: { id },
+    body: { title, description },
+  } = req;
+  try {
+    await Video.findOneAndUpdate({ _id: id }, { title, description });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
+
+export const deleteVideo = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    await Video.findOneAndRemove({ _id: id });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
