@@ -8,7 +8,7 @@ header.header
                 input(type="text", name="term", placeholder="검색어를 입력하세요..")
         .header__column
             ul
-                if !user.isAuthenticated
+                if !user
                     li 
                         a(href=routes.join) 가입하기
                     li 
