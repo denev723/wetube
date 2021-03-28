@@ -1,9 +1,10 @@
 .social-login
-    button.social-login__github
-        span 
-            i.fab.fa-github 
-            |   깃헙 아이디로 로그인하기
-    button.social-login__facebook
-        span 
+    button.social-login--github
+        a(href=routes.gitHub)
+            span
+                i.fab.fa-github 
+            |Continue with Github
+    button.social-login--facebook
+        span
             i.fab.fa-facebook 
-            |   페이스북 아이디로 로그인하기
+        |Continue with Facebook

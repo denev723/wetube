@@ -1,16 +1,16 @@
-import "./db";
 import dotenv from "dotenv";
+import "./db";
 import app from "./app";
+
+dotenv.config();
 
 import "./models/Video";
 import "./models/Comment";
 import "./models/User";
 
-dotenv.config();
-
 const PORT = process.env.PORT || 4000;
 
 const handleListening = () =>
-  console.log(`✅ https://localhost:${PORT} 서버에 연결되었습니다!!`);
+  console.log(`✅  Listening on: http://localhost:${PORT}`);
 
 app.listen(PORT, handleListening);
