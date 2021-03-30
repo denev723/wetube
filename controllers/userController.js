@@ -80,12 +80,17 @@ export const userDetail = async (req, res) => {
   } = req;
   try {
     const user = await User.findById(id);
+    console.log(user);
     res.render("userDetail", { pageTitle: "User Detail", user });
   } catch (error) {
     res.redirect(routes.home);
   }
 };
-export const editProfile = (req, res) =>
+export const getEditProfile = (req, res) =>
   res.render("editProfile", { pageTitle: "Edit Profile" });
+export const postEditProfile = (req, res) => {
+  null;
+};
+
 export const changePassword = (req, res) =>
   res.render("changePassword", { pageTitle: "Change Password" });
