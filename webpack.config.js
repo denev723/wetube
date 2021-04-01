@@ -8,6 +8,7 @@ const MODE = process.env.WEBPACK_ENV;
 const config = {
   entry: ENTRY_FILE,
   mode: MODE,
+  devtool: "cheap-module-source-map",
   module: {
     rules: [
       {
